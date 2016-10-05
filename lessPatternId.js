@@ -108,7 +108,9 @@ function displayDuplicationSeverityScores() {
     duplicationSeverityScores.forEach(function(score) {
         if (score > 0) {
             duplicationSeverityScoresMap[score].forEach(function(hash) {
-                console.log('hash: ', hash, 'score: ', score, '# occurances: ', duplicationSeverityScoresMap[score].length);
+                console.log('hash: ', hash, 'score: ', score, '# occurances: ', partsMap[hash].length);
+                //the css blockconsole.log(partValueMap[hash]);
+                //console.log("\n\n\n\n");
             });
         }
     });
