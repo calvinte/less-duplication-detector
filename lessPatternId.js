@@ -107,7 +107,9 @@ function displayDuplicationSeverityScores() {
     });
     duplicationSeverityScores.forEach(function(score) {
         if (score > 0) {
-            console.log('score: ', score, '# files: ', duplicationSeverityScoresMap[score].length);
+            duplicationSeverityScoresMap[score].forEach(function(hash) {
+                console.log('hash: ', hash, 'score: ', score, '# occurances: ', duplicationSeverityScoresMap[score].length);
+            });
         }
     });
 
