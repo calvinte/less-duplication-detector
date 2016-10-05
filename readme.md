@@ -5,7 +5,7 @@ Duplication, oh no!
 -------------------
 
 Usage:
-`node lessPatternId.js --path '/Users/yourname/Development/project/yoursrc/less'
+`node lessPatternId.js --path '/Users/yourname/Development/project/yoursrc/less'`
 
 Output:
 ```
