@@ -107,13 +107,17 @@ function displayDuplicationSeverityScores() {
             scoreDescriptions.push({
                 hash: hash,
                 score: severityScore,
-                occurances: partsMap[hash].length,
+                occurances: partsMap[hash],
                 value: value,
             });
         }
     });
     _.each(_.sortBy(scoreDescriptions, 'score'), function(scoreDescroption) {
-        console.log(scoreDescroption.hash, scoreDescroption.score, scoreDescroption.occurances, scoreDescroption.value);
+        console.log(scoreDescroption.hash);
+        console.log(scoreDescroption.score);
+        console.log(scoreDescroption.occurances);
+        console.log(scoreDescroption.value);
+        console.log("\n");
     });
 }
 
