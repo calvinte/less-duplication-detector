@@ -86,12 +86,10 @@ function fromDir(startPath,filter){
             fromDir(filepath, filter); //recurse
         } else if (filepath.indexOf(filter)>=0) {
             ++fromDirWaitingToRespond;
-            _.defer(function() {
-                readLessFile(filepath, function(parts) {
-                    if (--fromDirWaitingToRespond < 0) {
-                        displayDuplicationSeverityScores();
-                    }
-                });
+            readLessFile(filepath, function(parts) {
+                if (--fromDirWaitingToRespond < 0) {
+                    displayDuplicationSeverityScores();
+                }
             });
         };
     };
@@ -116,8 +114,6 @@ function displayDuplicationSeverityScores() {
     });
     _.each(_.sortBy(scoreDescriptions, 'score'), function(scoreDescroption) {
         console.log(scoreDescroption.hash, scoreDescroption.score, scoreDescroption.occurances, scoreDescroption.value);
-        console.log(partValueMap[scoreDescroption.hash]);
-        console.log(partsMap[scoreDescroption.hash]);
     });
 }
 
