@@ -18,11 +18,12 @@ function readLessFile(path, cb) {
     });
 };
 
+var regex = /\n.*\s{/;
 function parseLessFile(path, hunk, parts, cb) {
-    var match, parts;
+    var match, parts, part;
     parts = parts || [];
+    match = hunk.match(regex);
 
-    match = hunk.match(/\{\n|\}\n/);
     if (match && match.index > 0) {
         parts.push(hunk.slice(0, match.index));
         return parseLessFile(path, hunk.slice(match.index + 1), parts, cb)
@@ -34,20 +35,27 @@ function parseLessFile(path, hunk, parts, cb) {
 var partsMap = {};
 var partValueMap = {};
 function processParts(path, parts, cb) {
-    var parts = _.map(parts, function(part) {
-        part = part && part.split('\n');
+    var parts = _.compact(_.map(parts, function(part) {
+        part = part && part.split(';');
         return _.compact(_.map(part, function(val) {
-            return val.trim();
+            if (val.match(/\.|\&|\#|\}/)) {
+                return null;
+            } else {
+                return val.trim();
+            }
         })).sort();
-    });
+    }));
 
     parts.forEach(function(part) {
-        var hash = md5(part.join(''));
-        partValueMap[hash] = part;
-
-        partsMap[hash] = partsMap[hash] || [];
-        partsMap[hash].push(path);
-
+        var hash;
+        hash = md5(part.join(''));
+        if (partValueMap[hash]) {
+            // doop
+            partsMap[hash].push(path);
+        } else {
+            partValueMap[hash] = part;
+            partsMap[hash] = [path];
+        }
     });
 
     cb(parts);
@@ -94,28 +102,23 @@ function displayDuplicationSeverityScores() {
     console.log('Blocks that could be combined are scored by the number of properties * the number of occurrences');
     console.log('Reading duplications severity scores:');
 
-    var duplicationSeverityScoresMap = {};
-    var duplicationSeverityScores;
+    var scoreDescriptions = [];
     _.each(partValueMap, function(value, hash) {
-        var severityScore = (partsMap[hash].length - 1) * value.length;
-        duplicationSeverityScoresMap[severityScore] = duplicationSeverityScoresMap[severityScore] || [];
-        duplicationSeverityScoresMap[severityScore].push(hash);
-    });
-
-    duplicationSeverityScores = Object.keys(duplicationSeverityScoresMap).sort(function(a, b) {
-        return b - a;
-    });
-    duplicationSeverityScores.forEach(function(score) {
-        if (score > 0) {
-            duplicationSeverityScoresMap[score].forEach(function(hash) {
-                console.log('hash: ', hash, 'score: ', score, '# occurances: ', partsMap[hash].length);
-                //the css blockconsole.log(partValueMap[hash]);
-                //console.log("\n\n\n\n");
+        var severityScore = value.length && (partsMap[hash].length - 1) * (value.length - 1);
+        if (severityScore) {
+            scoreDescriptions.push({
+                hash: hash,
+                score: severityScore,
+                occurances: partsMap[hash].length,
+                value: value,
             });
         }
     });
-
-    console.log('Complete.');
+    _.each(_.sortBy(scoreDescriptions, 'score'), function(scoreDescroption) {
+        console.log(scoreDescroption.hash, scoreDescroption.score, scoreDescroption.occurances, scoreDescroption.value);
+        console.log(partValueMap[scoreDescroption.hash]);
+        console.log(partsMap[scoreDescroption.hash]);
+    });
 }
 
 fromDir(pathToDir, '.less');
