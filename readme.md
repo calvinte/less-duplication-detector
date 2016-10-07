@@ -12,45 +12,167 @@ Output:
 Thank you for using less duplication detection tool
 Blocks that could be combined are scored by the number of properties * the number of occurrences
 Reading duplications severity scores:
-hash:  9ffbae7297abeb8fb000c9e76177dd5a score:  156 # occurances:  14
-hash:  605bc89ba586950d88e8a75141b379c9 score:  143 # occurances:  14
-hash:  ce134872290d8a397fa5dc91cb496b43 score:  143 # occurances:  14
-hash:  291667fca45cbcd41584497d2cf81db5 score:  143 # occurances:  14
-hash:  f7cb5959709362da2e4753088ff9ccae score:  143 # occurances:  14
-hash:  2d05e5ae74b2d2d46d601fdc6e130bb1 score:  139 # occurances:  140
-hash:  7d41b9fd5e12144cca0d5fb59010c583 score:  130 # occurances:  14
-hash:  01dadd92486cc1cd168d31dfcf0a6b99 score:  130 # occurances:  14
-hash:  13a65603ea908a3c547a40f4fde5688d score:  117 # occurances:  14
-hash:  25de816fe376223da990ff8d6671a5dd score:  117 # occurances:  14
-hash:  6c51048302f0536f6ae7abe7aecad551 score:  117 # occurances:  14
-hash:  39156b41bfc18ddbf0b7fb6d083836f7 score:  104 # occurances:  14
-hash:  d819b9d4544c8be295bad756daaeb184 score:  104 # occurances:  14
-hash:  24ee409ad3ce340dab3bba3ae624ae3c score:  104 # occurances:  14
-hash:  55fbb7cc366500ffac7d163036be5062 score:  104 # occurances:  14
-hash:  985f0c01dfc273e6c3bebc7a11cdf336 score:  104 # occurances:  14
-hash:  77df7582d6744942445c233a875af676 score:  104 # occurances:  14
-hash:  9b6ef065808aa24b9e28679657dc4bf5 score:  65 # occurances:  14
-hash:  643d6c7088bd837360fabd031be12c97 score:  65 # occurances:  14
-hash:  16d932d036e4902e9060d83178171b39 score:  65 # occurances:  14
-hash:  12789d48a02ebc7d2618d8954bac6a9a score:  54 # occurances:  28
-hash:  3a203b3103fb22d3f8cac93b20952ec7 score:  52 # occurances:  14
-hash:  f7f39c7abbb8602176fa8eacb1740a97 score:  52 # occurances:  14
-hash:  9f75bac3ffc15313aca00fd78c445828 score:  36 # occurances:  10
-hash:  2128f674506a1a2f1032b17482c52b3e score:  27 # occurances:  28
-hash:  d1b166d95e39c15fa4841b7f463654a6 score:  27 # occurances:  28
-hash:  8aeb4e7e52a352dc0b2fc71645a1097e score:  27 # occurances:  28
-hash:  df26cd6aa83e2127769ec098d076606e score:  27 # occurances:  28
-hash:  76bf607f35d087d87c68384df22dabf5 score:  27 # occurances:  28
-hash:  f15deecceea0905a017e2ea42c818a0d score:  27 # occurances:  28
-hash:  c1524dee99bb4565fc5f93312f8fafab score:  27 # occurances:  10
-hash:  c3cdf6d20cd04d1de0a5171e12e99d4e score:  26 # occurances:  14
-hash:  b9266989464209927510d8ffeb81f619 score:  26 # occurances:  14
-hash:  c1484e5eb4f2cbff944dc9fbc866cae7 score:  26 # occurances:  14
-hash:  5bf74257ffb0d21399580604f82c674b score:  26 # occurances:  14
-hash:  35274a7163b2942f7ffbf1be625f0989 score:  26 # occurances:  14
-hash:  9f759f5f0af7aff71e625ace85da55db score:  9 # occurances:  10
-hash:  04522c4ba07cf4d76da1a4a46c230d13 score:  9 # occurances:  10
-Complete.
+Thank you for using less duplication detection tool
+Blocks that could be combined are scored by the number of properties * the number of occurrences
+Reading duplications severity scores:
+37bd016019a2f6d0795d8ca1633d2516
+1
+[ '/Users/yourname/Development/project/yoursrc/less/less/common/static.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/common/static.less' ]
+[ '@media only screen and (max-width: 700px) {\n                    column-count: 1',
+  'column-gap: 0px' ]
 
+
+7c4c07cf280977479090b42887a74559
+1
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'overflow: visible', 'position: relative' ]
+
+
+dfb250c77aa2a0adb12ba09519c1403d
+1
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'max-width: none', 'position: absolute' ]
+
+
+ef6273c3af168428388a57161706731f
+1
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'left: 24px', 'width: 1px' ]
+
+
+28ebe7ba54e3291d203cbf73ebbdf1d7
+1
+[ '/Users/yourname/Development/project/yoursrc/less/less/home.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/yourPage.less' ]
+[ 'margin-right: auto', 'min-width: 0px' ]
+
+
+29bad6fdd3377b71989b9f1744f53adb
+1
+[ '/Users/yourname/Development/project/yoursrc/less/less/pricing.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/yourPage.less' ]
+[ 'break-inside: avoid',
+  'p {\n                -webkit-column-break-inside: avoid' ]
+
+
+373b4dc1733872e7c477f239a1577893
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/common/static.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/common/static.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/common/static.less' ]
+[ 'background-repeat: no-repeat', 'background-size: 100%' ]
+
+
+901f5587ba4bdcdcf19aa1bc11629814
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/company.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/company.less' ]
+[ 'margin-left: 0px',
+  'margin-right: 0px',
+  'max-width: ~\'calc(100% - 400px)\'' ]
+
+
+15149ddec54265d16e74b537f58d9141
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'background-color: white', 'width: 100%', 'z-index: 1' ]
+
+
+b46e18f15401749b259b3231f3491d9e
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'margin: 45px auto 0',
+  'max-width: @width',
+  'padding: 60px 0 0 0' ]
+
+
+a63c76a01f97ca91cb5899977fa0edd1
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'top: 24px', 'width: 100%' ]
+
+
+01d9c4da1a455d1e24a3a0d09ea1c191
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'margin: 0 0 0 45px',
+  'padding: 0 0 0 60px',
+  'text-align: left' ]
+
+
+18ec7d2c155adf83cd55ca1d1ff47201
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/pricing.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/yourPage.less' ]
+[ 'margin-bottom: 40px', 'text-align: left' ]
+
+
+e7924c3280c920afc7447acdcdde0e82
+2
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/pricing.less' ]
+[ 'border-radius: 50%', 'height: 40px', 'width: 40px' ]
+
+
+ab54209944ecfd7aa416d1a203518c24
+3
+[ '/Users/yourname/Development/project/yoursrc/less/less/features.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'height: 1px',
+  'position: absolute',
+  'transform-origin: 0% 0%',
+  'width: 1px' ]
+
+
+c151afaa29f4cbb4d273054f28da5924
+4
+[ '/Users/yourname/Development/project/yoursrc/less/less/common/static.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/common/static.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/common/static.less' ]
+[ 'clear: both', 'display: block', 'height: 0' ]
+
+
+10bbf4d6d80b656f0b995d27e26d9c98
+4
+[ '/Users/yourname/Development/project/yoursrc/less/less/common/static.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/press.less' ]
+[ 'margin-left: auto',
+  'margin-right: auto',
+  'max-width: 900px',
+  'padding-bottom: 10px',
+  'padding-top: 10px' ]
+
+
+7c44fb94444d21e7abeae2a453eb1420
+4
+[ '/Users/yourname/Development/project/yoursrc/less/less/home.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/yourPage.less' ]
+[ 'left: 50%',
+  'margin-top: 40px',
+  'position: relative',
+  'text-align: center',
+  'transform: translateX(-50%)' ]
+
+
+1cbca0bd79067f7a0bc50a89bce45b8c
+4
+[ '/Users/yourname/Development/project/yoursrc/less/less/home.less',
+  '/Users/yourname/Development/project/yoursrc/less/less/yourPage.less' ]
+[ 'border-top: none',
+  'margin-bottom: 30px',
+  'margin-left: auto',
+  'margin-right: auto',
+  'padding-bottom: 20px' ]
+Complete.
 ```
 
