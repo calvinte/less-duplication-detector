@@ -12,9 +12,6 @@ Output:
 Thank you for using less duplication detection tool
 Blocks that could be combined are scored by the number of properties * the number of occurrences
 Reading duplications severity scores:
-Thank you for using less duplication detection tool
-Blocks that could be combined are scored by the number of properties * the number of occurrences
-Reading duplications severity scores:
 37bd016019a2f6d0795d8ca1633d2516
 1
 [ '/Users/yourname/Development/project/yoursrc/less/less/common/static.less',
