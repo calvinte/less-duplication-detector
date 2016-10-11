@@ -48,7 +48,7 @@ function processParts(path, parts, cb) {
                 // `val` is not a valid CSS `property:value`.
                 return null;
             } else {
-                return val.trim();
+                return val.replace(/\s+/g, ' ').trim();
             }
         })).sort();
     }));
@@ -106,8 +106,8 @@ function fromDir(startPath,filter){
 
 function displayDuplicationSeverityScores() {
     console.log('Thank you for using less duplication detection tool');
-    console.log('Blocks that could be combined are scored by the number of properties * the number of occurrences');
-    console.log('Reading duplications severity scores:');
+    console.log('Blocks that can be combined are scored by (propertyCount * occurrencesCount)');
+    console.log('Reading duplications severity scores (propertyHash, score, fileList, propertyList):');
 
     var scoreDescriptions = [];
     _.each(partValueMap, function(value, hash) {
@@ -128,6 +128,8 @@ function displayDuplicationSeverityScores() {
         console.log(scoreDescroption.value);
         console.log("\n");
     });
+
+    console.log('Complete!');
 }
 
 fromDir(pathToDir, '.less');
