@@ -36,9 +36,16 @@ var partsMap = {};
 var partValueMap = {};
 function processParts(path, parts, cb) {
     var parts = _.compact(_.map(parts, function(part) {
-        part = part && part.split(';');
+        part = part && part
+            .replace(/\.(svg|gif|jpg|jpeg|tiff|png)/g, replaceFirstPart) // ".png" -> "png"
+            .replace(/\.([a-z|A-Z|0-9]*\()/g, replaceFirstPart) // ".at2x(" -> "at2x("
+            .replace(/@{([a-z|A-Z|0-9]*)}/g, replaceFirstPart) // "@{assetsBase}" -> "assetsBase"
+            .replace(/\b(0px|0\%|0em|0pt|0vh|0vw)/g, '0') // "0px" -> "0"
+            .replace(/:\s+/, ':') // "height : 10px" -> "height:10px"
+            .split(/;|{|}/); // "} .selector {prop:value} .nextSelector {}" -> [" .selector ", "prop:value", " .nextSelector "]
         return _.compact(_.map(part, function(val) {
-            if (val.match(/\.|\&|\#|\}/)) {
+            if (val.match(/\.[a-z|A-Z]|\#[a-z|A-Z]|&|@media/) || val.indexOf(':') === -1) {
+                // `val` is not a valid CSS `property:value`.
                 return null;
             } else {
                 return val.trim();
@@ -58,13 +65,15 @@ function processParts(path, parts, cb) {
         }
     });
 
+    function replaceFirstPart(m, p1) {
+        return p1;
+    }
+
     cb(parts);
 }
 
-// @see https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
 function md5(str) {
-    // We transform the string into an arraybuffer.
-    return crypto.createHash('md5').update(str).digest("hex");
+    return crypto.createHash('md5').update(str).digest('hex');
 }
 
 //@see http://stackoverflow.com/a/25462405/1357678
